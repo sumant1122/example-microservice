@@ -1,10 +1,10 @@
 name: Python Microservice Pipeline
-repository: https://github.com/your-username/python-microservice.git
+repository: https://github.com/sumant1122/example-microservice.git
 branch: main
 
 # Global configuration
 env:
-  IMAGE_NAME: "your-docker-username/hello-world-service"
+  IMAGE_NAME: "hello-world-service"
   IMAGE_TAG: "latest"
 
 on_success: "echo 'Microservice deployed!'"
@@ -27,10 +27,3 @@ jobs:
     steps:
       - name: Build Image
         command: "docker build -t $IMAGE_NAME:$IMAGE_TAG ."
-      
-      - name: Login to DockerHub
-        # It's safer to have 'docker login' configured on the runner machine beforehand
-        command: "docker login -u $DOCKER_USER -p $DOCKER_PASS"
-      
-      - name: Push to Registry
-        command: "docker push $IMAGE_NAME:$IMAGE_TAG"
