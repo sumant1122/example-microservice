@@ -1,6 +1,4 @@
 name: Python Microservice Pipeline
-repository: https://github.com/sumant1122/example-microservice.git
-branch: main
 
 # Global configuration
 env:
@@ -14,15 +12,14 @@ jobs:
   - name: Build
     steps:
       - name: Install Dependencies
-        command: "uv pip install -r requirements.txt --system"
-
+        command: "uv venv && .venv\\Scripts\\activate && uv pip install -r requirements.txt"
 
   - name: Test
     needs: ["Build"]
     steps:
       - name: Run Tests
         command: "pytest"
-
+        
   - name: Docker
     needs: ["Test"]
     steps:
