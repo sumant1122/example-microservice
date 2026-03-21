@@ -18,7 +18,7 @@ jobs:
     needs: ["Build"]
     steps:
       - name: Run Tests
-        command: "pytest"
+        command: "uv run pytest"
         
   - name: Docker
     needs: ["Test"]
