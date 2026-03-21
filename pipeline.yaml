@@ -14,7 +14,7 @@ jobs:
   - name: Build
     steps:
       - name: Install Dependencies
-        command: "uv pip install -r requirements.txt"
+        command: "uv pip install -r requirements.txt --system"
 
 
   - name: Test
